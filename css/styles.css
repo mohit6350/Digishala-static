@@ -3,6 +3,7 @@
     --secondary-color: #f39c12;
     --text-color: #333;
     --bg-color: #f4f4f4;
+    --card-bg: #ffffff;
 }
 
 * {
@@ -25,7 +26,7 @@ body {
 }
 
 header {
-    background-color: #fff;
+    background-color: var(--card-bg);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
@@ -65,7 +66,7 @@ nav {
 .hero {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: #fff;
-    padding: 100px 0;
+    padding: 150px 0 100px;
     text-align: center;
 }
 
@@ -104,80 +105,68 @@ nav {
     color: #fff;
 }
 
-.features {
+.features, .user-roles {
     padding: 80px 0;
 }
 
-.features h2 {
+.features h2, .user-roles h2 {
     text-align: center;
     font-size: 36px;
     margin-bottom: 40px;
 }
 
-.feature-grid {
+.feature-grid, .role-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
 }
 
-.feature-item {
-    background-color: #fff;
+.feature-item, .role-item {
+    background-color: var(--card-bg);
     border-radius: 10px;
     padding: 30px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     opacity: 0;
     transform: translateY(20px);
 }
 
-.feature-item:hover {
+.feature-item:hover, .role-item:hover {
     transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.feature-item i {
+.feature-item i, .role-item > i {
     font-size: 48px;
     color: var(--primary-color);
     margin-bottom: 20px;
 }
 
-.feature-item h3 {
+.feature-item h3, .role-item h3 {
     font-size: 24px;
     margin-bottom: 10px;
+}
+
+.role-item ul {
+    list-style-type: none;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.role-item ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.role-item ul li i {
+    margin-right: 10px;
+    color: var(--secondary-color);
 }
 
 .user-roles {
-    background-color: #fff;
-    padding: 80px 0;
-}
-
-.user-roles h2 {
-    text-align: center;
-    font-size: 36px;
-    margin-bottom: 40px;
-}
-
-.role-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-}
-
-.role-item {
-    text-align: center;
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.role-item i {
-    font-size: 64px;
-    color: var(--secondary-color);
-    margin-bottom: 20px;
-}
-
-.role-item h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
+    background-color: var(--card-bg);
 }
 
 .cta {
@@ -227,5 +216,13 @@ footer {
     .feature-grid,
     .role-grid {
         grid-template-columns: 1fr;
+    }
+
+    .role-item ul {
+        text-align: center;
+    }
+
+    .role-item ul li {
+        justify-content: center;
     }
 }
