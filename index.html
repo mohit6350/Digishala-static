@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +34,7 @@
 
         header {
             background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
@@ -134,14 +135,50 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
+            overflow: hidden;
         }
 
         .skill-card {
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: moveRightToLeft 5s infinite;
+            font-weight: bold;
+            /* Animation to move from right to left */
+        }
+
+        .skills-grid .skill-card:hover {
+            transform: translateY(-10px);
+            /* Lift the item when hovered */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            /* More prominent shadow on hover */
+        }
+
+        .skills-grid .skill-card {
             background-color: #fff;
             padding: 20px;
             border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        @keyframes moveRightToLeft {
+            0% {
+                transform: translateX(100%);
+                /* Start from the right */
+            }
+
+            50% {
+                transform: translateX(0);
+                /* Move to original position */
+            }
+
+            100% {
+                transform: translateX(-100%);
+                /* End at the left */
+            }
         }
 
         .projects-grid {
@@ -154,8 +191,18 @@
             background-color: #fff;
             border-radius: 5px;
             overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Smooth transition for transform and shadow */
         }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            /* Lifts the card when hovered */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            /* More intense shadow on hover */
+        }
+
 
         .project-card img {
             width: 100%;
@@ -215,6 +262,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <nav class="container">
@@ -243,8 +291,14 @@
                 <h2>About Me</h2>
                 <div class="about-content">
                     <div class="about-text">
-                        <p>Hello! I'm [Your Name], a web developer with a passion for creating beautiful and functional websites. With [X] years of experience in the field, I specialize in [Your Specialties].</p>
-                        <p>My goal is to [Your Professional Goal]. When I'm not coding, you can find me [Your Hobbies or Interests].</p>
+                        <h3>Hey there! I’m Mohit Khare – a tech enthusiast with a love for coding, design, and all
+                            things creative. With over 5.5 years of experience in Java, Spring Boot, and microservices,
+                            I’m always up for solving tricky problems and building cool apps.</h3>
+                        <br />
+                        <h3>But that’s not all – I also dive into Android app development, dabble in Python, and love
+                            creating sleek UI/UX designs. When I'm not coding, you’ll find me designing logos, making
+                            motion graphics, or experimenting with AI and IoT.
+                            Let’s connect if you’re into tech, design, or just want to talk shop!</h3>
                     </div>
                     <div class="about-image">
                         <img src="./assets/image-main.jpeg" alt="Your Name">
@@ -257,12 +311,12 @@
             <div class="container">
                 <h2>My Skills</h2>
                 <div class="skills-grid">
-                    <div class="skill-card">HTML5</div>
-                    <div class="skill-card">CSS3</div>
-                    <div class="skill-card">JavaScript</div>
-                    <div class="skill-card">React</div>
-                    <div class="skill-card">Node.js</div>
-                    <div class="skill-card">Python</div>
+                    <div class="skill-card" style="border: 3px solid #50c878;">HTML5</div>
+                    <div class="skill-card" style="border: 3px solid #677cd1;">CSS3</div>
+                    <div class="skill-card" style="border: 3px solid #afe336;">JavaScript</div>
+                    <div class="skill-card" style="border: 3px solid #c85070;">React</div>
+                    <div class="skill-card" style="border: 3px solid #726197;">Node.js</div>
+                    <div class="skill-card" style="border: 3px solid #c761b8;">Python</div>
                 </div>
             </div>
         </section>
@@ -272,15 +326,15 @@
                 <h2>My Projects</h2>
                 <div class="projects-grid">
                     <div class="project-card">
-                        <img src="https://via.placeholder.com/300x200" alt="Project 1">
+                        <img src="./assets/bookcricket.png" alt="Book Cricket">
                         <div class="project-info">
-                            <h3>Project 1</h3>
-                            <p>Description of Project 1. What it does, technologies used, etc.</p>
-                            <a href="#" class="btn">View Project</a>
+                            <h3>Book Cricket</h3>
+                            <p>Play the classic school time game from the 90's</p>
+                            <a href="bookcricket.html" class="btn">View Project</a>
                         </div>
                     </div>
                     <div class="project-card">
-                        <img src="https://via.placeholder.com/300x200" alt="Project 2">
+                        <img src="./assets/react.png" alt="Project 2">
                         <div class="project-info">
                             <h3>Project 2</h3>
                             <p>Description of Project 2. What it does, technologies used, etc.</p>
@@ -288,7 +342,7 @@
                         </div>
                     </div>
                     <div class="project-card">
-                        <img src="https://via.placeholder.com/300x200" alt="Project 3">
+                        <img src="./assets/react.png" alt="Project 3">
                         <div class="project-info">
                             <h3>Project 3</h3>
                             <p>Description of Project 3. What it does, technologies used, etc.</p>
@@ -343,4 +397,5 @@
         });
     </script>
 </body>
+
 </html>
